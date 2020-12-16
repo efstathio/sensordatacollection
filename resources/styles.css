@@ -1,0 +1,17 @@
+.accel-label {
+    font-family: System-Regular;
+    fill: white;
+    text-anchor: middle;
+    text-length: 32;
+    x: 50%;
+    y: 20%;
+}
+
+.accel-data {
+    font-family: System-Light;
+    fill: #ffff00;
+    text-anchor: middle;
+    text-length: 64;
+    x: 50%;
+    y: 50%;
+}

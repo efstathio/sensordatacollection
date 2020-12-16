@@ -1,0 +1,44 @@
+{
+  "name": "sensordatacollection",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "fitbit-build"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@fitbit/sdk": "^5.0.1",
+    "@fitbit/sdk-cli": "^1.7.3",
+    "accelerometer": "^1.2.0",
+    "fitbit-asap": "^1.2.3"
+  },
+  "fitbit": {
+    "appUUID": "f6ba163b-82e6-4efa-b634-ef1609266c9e",
+    "appType": "app",
+    "appDisplayName": "Sensors",
+    "iconFile": "resources/icon.png",
+    "wipeColor": "#607d8b",
+    "requestedPermissions": [
+      "access_heart_rate",
+      "access_activity",
+      "access_sleep",
+      "access_exercise",
+      "run_background",
+      "access_internet",
+      "access_location",
+      "access_user_profile"
+    ],
+    "buildTargets": [
+      "vulcan"
+    ],
+    "i18n": {
+      "en-US": {
+        "name": "Sensors"
+      }
+    },
+    "defaultLanguage": "en-US"
+  }
+}
