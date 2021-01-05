@@ -3,8 +3,8 @@ import {send} from "./transport";
 
 
 // sensor settings
-const samplerate = 10; // low for testing
-const batch = 50; // low for testing
+const samplerate = 1; // low for testing
+const batch = 5; // low for testing
 const settings = { frequency: samplerate, batch: batch };
 
 // initialize sensors

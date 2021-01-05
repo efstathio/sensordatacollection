@@ -95,7 +95,7 @@ function preparePayload() {
 export function sendQueue() {
     console.log('Preparing to send...');
     let payload = preparePayload();
-    console.log('Payload to be send: ' + JSON.stringify(payload))
+    console.log('Payload to be send: ' + JSON.stringify(payload, null, 2))
 
     // Reset
     localStorage.setItem('queue_last', 0);
@@ -124,7 +124,7 @@ export function sendQueue() {
             return;
         }
         // Cool!
-        console.log('Send okay!!');
+        console.log('Send okay!');
     }).catch((error) => {
         console.error('Error sending', error);
         reQueue();
