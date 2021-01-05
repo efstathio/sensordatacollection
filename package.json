@@ -16,7 +16,7 @@
     "fitbit-asap": "^1.2.3"
   },
   "fitbit": {
-    "appUUID": "f6ba163b-82e6-4efa-b634-ef1609266c9e",
+    "appUUID": "4f16df25-7017-47cc-a74a-d4e764d0d5a3",
     "appType": "app",
     "appDisplayName": "Sensors",
     "iconFile": "resources/icon.png",

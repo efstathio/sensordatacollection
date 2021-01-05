@@ -10,7 +10,7 @@ import asap from "fitbit-asap/companion"
 
 asap.onmessage = message => {
     if (message) {
-        console.log('Companion receive message:'+message)
+        // console.log('Companion receive message:' + message)
         onReceive(message);
     }
 }

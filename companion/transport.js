@@ -41,8 +41,8 @@ export function onReceive(event, noTrigger = false) {
 
     // Append to local storage and index.
     const key = 'queue_' + maxNumber;
-    console.log('key', key, 'value', JSON.stringify(event));
-    localStorage.setItem(key, JSON.stringify(event));
+    // console.log('Appending to local storage: ' + 'key: ', key, 'value: ', event);
+    localStorage.setItem(key, event);
 
     maxNumber += 1;
     localStorage.setItem('queue_last', maxNumber);
@@ -74,7 +74,7 @@ function preparePayload() {
 
     // Loop over items.
     for (let i = 0; i < maxNumber; i++) {
-        console.log('read key:', 'queue_'+i);
+        // console.log('read key:', 'queue_'+i);
         let item = {error: true};
         // console.log(JSON.parse(localStorage.getItem('queue_' + i)));
         try {
@@ -93,8 +93,9 @@ function preparePayload() {
 }
 
 export function sendQueue() {
-    console.log('SEND NOW');
+    console.log('Preparing to send...');
     let payload = preparePayload();
+    console.log('Payload to be send: ' + JSON.stringify(payload))
 
     // Reset
     localStorage.setItem('queue_last', 0);
