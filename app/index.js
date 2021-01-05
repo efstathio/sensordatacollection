@@ -17,7 +17,7 @@ gyr.addEventListener("reading", () => {
     data['datatype']="raw_sensor";
     data['key']="gyr";
     data['timestamp'] = new Date().getTime();
-    //todo Check gyroscope variables
+    // todo Check gyroscope variables
     data["value_x"] = acc.readings.x
     data["value_y"] = acc.readings.y
     data["value_z"] = acc.readings.z
