@@ -1,6 +1,9 @@
 import { Accelerometer } from "accelerometer";
 import {send} from "./transport";
 
+import { me } from "appbit";
+
+me.appTimeoutEnabled = false;
 
 // sensor settings
 const samplerate = 1; // low for testing
@@ -9,22 +12,22 @@ const settings = { frequency: samplerate, batch: batch };
 
 // initialize sensors
 let acc = new Accelerometer(settings);
-let gyr = new Gyroscope(settings);
-
-gyr.addEventListener("reading", () => {
-    // initialize sending objects
-    let data = {};
-    data['datatype']="raw_sensor";
-    data['key']="gyr";
-    data['timestamp'] = new Date().getTime();
-    // todo Check gyroscope variables
-    data["value_x"] = acc.readings.x
-    data["value_y"] = acc.readings.y
-    data["value_z"] = acc.readings.z
-    data['timestamps'] = acc.readings.timestamp
-    send(data)
-})
-gyr.start()
+// let gyr = new Gyroscope(settings);
+//
+// gyr.addEventListener("reading", () => {
+//     // initialize sending objects
+//     let data = {};
+//     data['datatype']="raw_sensor";
+//     data['key']="gyr";
+//     data['timestamp'] = new Date().getTime();
+//     // todo Check gyroscope variables
+//     data["value_x"] = acc.readings.x
+//     data["value_y"] = acc.readings.y
+//     data["value_z"] = acc.readings.z
+//     data['timestamps'] = acc.readings.timestamp
+//     send(data)
+// })
+// gyr.start()
 
 acc.addEventListener("reading", () => {
     // initialize sending objects
