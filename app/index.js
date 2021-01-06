@@ -1,12 +1,44 @@
 import { Accelerometer } from "accelerometer";
 import { Gyroscope } from "gyroscope";
 import { me } from "appbit";
-import {send} from "./transport";
+import { send } from "./transport";
 import { BodyPresenceSensor } from "body-presence";
 import { HeartRateSensor } from "heart-rate";
 import { geolocation } from "geolocation";
 
 me.appTimeoutEnabled = false;
+
+let data_loc = {}
+
+function getPosition() {
+    geolocation.watchPosition(locationSuccess, locationError, {
+        timeout: 60 * 1000, enableHighAccuracy: true
+    });
+}
+
+function locationSuccess(position) {
+    console.log(
+        "Latitude: " + position.coords.latitude,
+        "Longitude: " + position.coords.longitude
+    );
+    data_loc['datatype']="raw_sensor";
+    data_loc['key']="loc";
+    data_loc['timestamp'] = new Date().getTime();
+    data_loc["loc_lat"] = position.coords.latitude
+    data_loc["loc_long"] = position.coords.longitude
+    data_loc['timestamps'] = position.timestamp
+    send(data_loc)
+}
+
+function locationError(error) {
+    console.log("Error: " + error.code, "Message: " + error.message);
+}
+// Start getting position
+getPosition();
+
+
+
+
 
 // sensor settings
 const samplerate = 1; // low for testing
@@ -44,7 +76,6 @@ acc.addEventListener("reading", () => {
     send(data_acc)
 })
 acc.start()
-
 gyro.addEventListener("reading", () => {
     // initialize sending objects
     let data_gyro = {};
